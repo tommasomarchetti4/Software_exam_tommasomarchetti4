@@ -1,0 +1,16 @@
+{
+    "min": -100.0,
+    "max": 54.28279495239258,
+    "genre_mapping": {
+        "disco": 0,
+        "metal": 1,
+        "reggae": 2,
+        "blues": 3,
+        "rock": 4,
+        "classical": 5,
+        "jazz": 6,
+        "hiphop": 7,
+        "country": 8,
+        "pop": 9
+    }
+}
