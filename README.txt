@@ -1,12 +1,24 @@
+MAIN PUPROSE
+
 The purpose of the image is to predict the music genre of a song, using a ML model trained with tensorflow. It can predict both a single sound file, or a 
+
+IMAGE BUILDING
 
 The code to build the image is: docker build -f exam.image -t genre-prediction:default .
 
-The image has been built starting from python:3.12 and by installing ffmpeg using apt-get commands, together with update, upgrade, autoclean and autoremove. Then I used phyton3 pip install to iclude in the image the packages for tensorflow-cpu, torch-2.11.0, torchaudio.2.11.0, torchcoded-0.12.0 and numpy. The versions of the packages have been chosen in order for them to be compatible to one another, otherwise the code wouldn't work. I subsequently copy inside the /home/docker (as a Docker User) the files musicgenre.sh, containing the code to read the files, call the phyton code, then pritn the outputs on the terminal, genreprediction.py, containing the code that actual turns the sound files in images and then uses the model to predict its genre, the genre_prediction.keras, that cotains the model, and the config_model.json, that contains the parameters used to predict the model.
+The image has been built starting from python:3.12 and by installing ffmpeg using apt-get commands, together with update, upgrade, autoclean and autoremove. Then I used phyton3 pip install to include in the image the packages for tensorflow-cpu, torch-2.11.0, torchaudio.2.11.0, torchcoded-0.12.0 and numpy. The versions of the packages have been chosen in order for them to be compatible to one another, otherwise the code wouldn't work. I subsequently copy inside the /home/docker (as a Docker User) the files: 
+- musicgenre.sh, containing the code to read the files, call the phyton code and print the outputs on the terminal; 
+- genreprediction.py, containing the code that actual turns the sound files in images and then uses the model to predict its genre: 
+- genre_prediction.keras, that contains the model;
+- config_model.json, that contains the parameters used to predict the model.
+
+IMAGE RUNNING
 
 To run it instead do: docker run -v <path_to_the_directory_with_the_sound_files>:/home/docker/sounds/ genre-prediction:default <name_of_file_or_directory>
 
-If no modification has been made to the github directory during the download, in place of <path_to_the_directory_with_the_sound_files> you can write $PWD/sounds and in place of <name_of_file_or_directory> either "rock.00007.wav" if you want to predict a single file, or "sounds" if you want to predict a directory full of sounds.
+If no modification has been made to the github directory during the download, in place of <path_to_the_directory_with_the_sound_files> write $PWD/sounds and in place of <name_of_file_or_directory> either "rock.00007.wav", if you want to predict a single file, or "sounds", if you want to predict a directory full of sounds.
+
+IMPLEMENTATION OF THE CODE
 
 The code of the .sh file is explained below:
 
