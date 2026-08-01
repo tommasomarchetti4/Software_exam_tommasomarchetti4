@@ -4,7 +4,7 @@ The image has been built starting from python:3.12 and by installing ffmpeg usin
 
 To run it instead do: docker run -v <path_to_the_directory_with_the_sound_files>:/home/docker/sounds/ genre-prediction:default <name_of_file_or_directory>
 
-If no modification has been made to the github directory during the download, in place of <path_to_the_directory_with_the_sound_files> you can write $PWD/sounds and in place of <name_of_file_or_directory> either rock.00007.wav if you want to predict a single file, or sounds if you want to predict a directory full of sounds.
+If no modification has been made to the github directory during the download, in place of <path_to_the_directory_with_the_sound_files> you can write $PWD/sounds and in place of <name_of_file_or_directory> either "rock.00007.wav" if you want to predict a single file, or "sounds" if you want to predict a directory full of sounds.
 
 The code of the .sh file is explained below:
 
